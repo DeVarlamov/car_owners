@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Новости
+{% endblock %}
+
+{% block content %}
+    <h1>Новости</h1>
+    {% for author, title, desc, img, cont in mylist %}
+    <hr>
+        <div class='box'>
+            <article class="media">
+              <div class='media-content'>
+                <div class='content'>
+                  <p>
+                    <h3>{{ title }}</h3>
+                    {% if img %}
+                        <img src="{{ img }}" alt="">
+                    {% endif %}
+                    <p>{{ desc }}</p>
+                    {% if cont %}
+                        <p>{{ cont }}</p>
+                    {% endif %}
+                    <p>Автор: {{ author }}</p>
+                  </p>
+                </div>
+              </div>
+            </article>
+        </div>
+    {% endfor %}
+{% endblock %}
